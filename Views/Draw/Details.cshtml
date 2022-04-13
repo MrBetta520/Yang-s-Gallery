@@ -1,0 +1,29 @@
+﻿@model Assignment12._2._2.Models.Draw
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">@Html.DisplayFor(model => model.Name)</h1><br /><br />
+<div class="row align-middle">
+    <div class="col">
+        @if(Model.ImageUrl != " ")
+        {
+            <img src="~/images/@Model.ImageUrl" alt="@Model.Name" height="700" width="500"/>
+        }
+    </div>
+    <div class="col h4">
+        <p><b>@Html.DisplayNameFor(model => model.Name)</b>: @Html.DisplayFor(model => model.Name)</p><br />
+        <p><b>@Html.DisplayNameFor(model => model.Author)</b>: @Html.DisplayFor(model => model.Author)</p><br />
+        <p><b>@Html.DisplayNameFor(model => model.Country)</b>: @Html.DisplayFor(model => model.Country)</p><br />
+        <p><b>@Html.DisplayNameFor(model => model.Price)</b>: $@Html.DisplayFor(model => model.Price)</p><br />
+        <p><b>@Html.DisplayNameFor(model => model.Description)</b>: @Html.DisplayFor(model => model.Description)</p>
+
+    </div>
+</div>
+<div>
+    <a asp-action="Index" class="float-right">Back to List</a>
+</div>
+<br />
+
+@await Html.PartialAsync("_Footer")

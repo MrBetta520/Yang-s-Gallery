@@ -1,0 +1,75 @@
+﻿@model Assignment12._2._2.Models.DrawViewModel
+@{
+    ViewData["Title"] = "Gallery";
+    Layout = "~/Views/Shared/_LayoutGallery.cshtml";
+}
+
+<h1 class="text-center">Gallery</h1>
+
+<button type="button" onclick="location.href='@Url.Action("Create")'" class="btn btn-primary border-0">Add New Draw</button>
+
+
+<div>
+    @foreach (var item in Model.Draws)
+    {
+
+        <div class="card text-center float-left mx-3 my-2" style="width: 30%;">
+            <img class="card-img-top" src="~/images/@Html.DisplayFor(model => item.ImageUrl)" alt="@Html.DisplayFor(model => item.Name)" width="350" height="400">
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(model => item.Name)</h5>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary" style="margin:auto">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" style="margin:auto">Delete</a>
+                <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning" style="margin:auto">Update</a>
+            </div>
+        </div>
+
+    }
+</div>
+
+<br />
+<br />
+@section section1
+{
+    <div class="container-fluid bg-dark" style="margin-top: 1000px">
+        <footer class="py-5 text-white">
+            <div class="row">
+                <div class="col-1">
+                </div>
+                <div class="col-2">
+                    <h5>Section</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link p-0 text-muted">Home</a></li>
+                        <li class="nav-item mb-2"><a asp-area="" asp-controller="Home" asp-action="Privacy" class="nav-link p-0 text-muted">Privacy</a></li>
+                        <li class="nav-item mb-2"><a asp-area="" asp-controller="Draw" asp-action="Index" class="nav-link p-0 text-muted">Gallery</a></li>
+                        <li class="nav-item mb-2"><a asp-area="" asp-controller="Draw" asp-action="About" class="nav-link p-0 text-muted">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-1">
+                </div>
+
+                <div class="col-6 offset-1">
+                    <form>
+                        <h5>Subscribe to our newsletter</h5>
+                        <p>Monthly digest of whats new and exciting from us.</p>
+                        <div class="d-flex w-100 gap-2">
+                            <label for="newsletter1" class="visually-hidden">Email address</label>
+                            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="" style="text-align:center">
+                <hr />
+                <p>&copy; Yang All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+}
+
+
+
+
+
+
